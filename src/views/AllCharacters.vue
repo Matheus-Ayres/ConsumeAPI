@@ -4,7 +4,7 @@ import { getCharacters } from '@/services/http'
 
 const infos = ref([])
 
-async function Cartoon() {
+async function Characters() {
   const result = await getCharacters();
   infos.value = result;
   console.log(result)
@@ -17,7 +17,7 @@ async function Cartoon() {
 }
 
 onMounted(() => {
-  Cartoon();
+  Characters();
 });
 
 function editUrl(url) {
@@ -35,11 +35,30 @@ function editUrl(url) {
 
   <main class="characters-position">
     <div v-for="info in infos" :key="info.id">
-      <div class="card">
-          {{ info.name }}
-          
-          <img :src="editUrl(info.image)" width="200px">
-      </div>
+      <RouterLink class="SeeMore" :to="'/Character/'+ info.id">   
+        <div class="card">
+          <div class="nameChar">
+            {{ info.name }}
+          </div>
+          <div class="infosChar">
+            <img :src="editUrl(info.image)" class="imgChar" width="200px">
+              <div class="description">
+                <span>
+                  <h4 class="Alternative">  
+                    Alternative Names:
+                  </h4>
+                    <p v-for="(name, i) in info.bio.alternativeNames" :key="i" class="Names">
+                      <ul>
+                        <li>
+                          {{ name }};
+                        </li>
+                      </ul>
+                    </p>
+                </span>
+              </div>
+          </div>
+        </div>    
+      </RouterLink>
     </div>
   </main> 
 
@@ -58,21 +77,77 @@ function editUrl(url) {
   }
 
   .wiki{
-    font-size: 2rem;
-    font-family: "Roboto";
-    color: var(--yellow);
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    font-family: "avatar";
+    color: white;
     font-weight: bold;
+    
   }
 
   .characters-position{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 40px 90px 90px 90px;
+    margin: 40px 90px 90px 50px;
     gap: 50px;
   }
 
   .card{
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
+    background-color: var(--red);
+    border: 2px solid var(--yellow);
+    width: 410px;
+    height: 240px;
+  }
+
+  .card:hover{
+    transition: 0.3s;
+    box-shadow: 3px 8px 5px 5px rgba(0, 0, 0, 0.4);
+    background-color: #750800;
+  }
+
+  .nameChar{
+    width: 55%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-family: "avatar";
+    padding: 8px 0 3px 0;
+    font-size: 1.8rem;
+  }
+
+  .imgChar{
+    border-radius: 20px;
+    padding: 5px 15px 10px 12px;
+  }
+
+  .infosChar{
+    display: flex;
+  }
+
+  .description{
+    width: 175px;
+    overflow-wrap: break-word;
+    margin: 10px;
+  }
+
+
+  .SeeMore{
+    text-decoration: none;
+  }
+
+  .Alternative{
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    font-family: "Roboto";
+  }
+
+  .Names{
+    color: white;
+    font-family: "Roboto";
   }
 </style>

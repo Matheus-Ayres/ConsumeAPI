@@ -5,9 +5,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+@font-face {
+  font-family: "avatar";
+  src: url(./AvaterraPersonalUseOnly-2v1oX.otf);
+}
+
+
 :root{
   --red: #C20C00;
   --yellow: #E0D802;
+  --redShadow: #750800;
 }
 
 body{
