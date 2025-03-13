@@ -27,6 +27,7 @@ function editUrl(url) {
 </script>
 
 <template>
+
 <nav>
   <span class="wiki">
     Avatar Wiki
@@ -70,21 +71,8 @@ function editUrl(url) {
 
 
 <style scoped>
-  nav{
-    background-color: var(--red);
-    height: 60px;
-    border-bottom: 5px solid var(--yellow);
-  }
 
-  .wiki{
-    display: flex;
-    justify-content: center;
-    font-size: 3rem;
-    font-family: "avatar";
-    color: white;
-    font-weight: bold;
-    
-  }
+
 
   .characters-position{
     display: grid;
@@ -101,12 +89,14 @@ function editUrl(url) {
     border: 2px solid var(--yellow);
     width: 410px;
     height: 240px;
+    transition: 0.3s ease-out;
   }
 
   .card:hover{
-    transition: 0.3s;
+    transform: scale(1.1);
     box-shadow: 3px 8px 5px 5px rgba(0, 0, 0, 0.4);
     background-color: #750800;
+
   }
 
   .nameChar{
