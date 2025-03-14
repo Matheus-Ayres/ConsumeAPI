@@ -107,6 +107,7 @@ function editUrl(url) {
     font-family: "avatar";
     padding: 8px 0 3px 0;
     font-size: 1.8rem;
+    text-shadow: 0 2px 2px rgb(27, 27, 27);
   }
 
   .imgChar{

@@ -30,11 +30,16 @@ nav{
   font-family: "avatar";
   color: white;
   font-weight: bold;
-  
+  text-shadow: 0 2px 2px rgb(27, 27, 27);
 }
 
 body{
   background-color: #92AECA;
+}
+
+.text{
+  font-family: "Roboto";
+  color: white;
 }
 
 
