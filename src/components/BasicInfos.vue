@@ -1,15 +1,21 @@
 <script setup>
 defineProps({
-    bio: Object,
     InfoTitle: String,
-    
+    nationality: Object,
+    ethnicity: Object,
+    ages: Object,
+    born: Object,
+    physicalDescription: String
 })
 </script>
 
 <template>
     <div class="InfoPosition">
         <span class="InfoTitle">{{ InfoTitle }}</span>
-        <span class="InfoDesc">{{ bio?.nationality }}</span>
+        <span class="InfoDesc">{{ nationality?.nationality }}</span>
+        <span class="InfoDesc">{{ ethnicity?.ethnicity }}</span> 
+        <!-- <span v-for="(age, i) in ages" :key="i" class="InfoDesc">{{ age?.ages }}</span>  //não consegui -->
+        <span class="InfoDesc">{{ born?.born }}</span>
     </div>
 </template>
 
@@ -30,7 +36,8 @@ defineProps({
 
     .InfoDesc{
         color: white;
-        font-family: "Roboto";
         padding: 5px 0 5px 5px;
     }
+
+    
 </style>
